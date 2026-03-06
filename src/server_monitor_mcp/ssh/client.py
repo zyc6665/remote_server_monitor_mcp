@@ -3,7 +3,7 @@
 from typing import Optional
 
 import paramiko
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from .config import ServerConfig
 
