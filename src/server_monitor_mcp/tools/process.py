@@ -83,9 +83,7 @@ def list_processes(
     return processes
 
 
-def get_process_info(
-    server_name: str, ssh_client: SSHClient, pid: int
-) -> Optional[ProcessInfo]:
+def get_process_info(server_name: str, ssh_client: SSHClient, pid: int) -> Optional[ProcessInfo]:
     """
     获取特定进程的详细信息。
 
@@ -118,9 +116,7 @@ def get_process_info(
     )
 
 
-def kill_process(
-    server_name: str, ssh_client: SSHClient, pid: int, signal: int = 15
-) -> bool:
+def kill_process(server_name: str, ssh_client: SSHClient, pid: int, signal: int = 15) -> bool:
     """
     终止指定进程。
 

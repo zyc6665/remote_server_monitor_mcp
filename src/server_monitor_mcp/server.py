@@ -95,9 +95,7 @@ class ServerMonitorMCP:
                 # 获取服务器配置
                 server_config = self.config.get_server(server_name)
                 if not server_config:
-                    return [
-                        TextContent(type="text", text=f"错误：找不到服务器 '{server_name}'")
-                    ]
+                    return [TextContent(type="text", text=f"错误：找不到服务器 '{server_name}'")]
 
                 # 连接 SSH
                 with SSHClient(server_config, timeout=self.config.connect_timeout) as client:
@@ -121,7 +119,9 @@ class ServerMonitorMCP:
                         pid = arguments.get("pid")
                         process = get_process_info(server_name, client, pid)
                         if process:
-                            return [TextContent(type="text", text=process.model_dump_json(indent=2))]
+                            return [
+                                TextContent(type="text", text=process.model_dump_json(indent=2))
+                            ]
                         else:
                             return [TextContent(type="text", text=f"未找到 PID {pid} 的进程")]
 

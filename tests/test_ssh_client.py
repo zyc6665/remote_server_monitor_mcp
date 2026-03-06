@@ -62,9 +62,7 @@ def test_monitor_config_with_servers():
 
 def test_monitor_config_get_nonexistent():
     """测试获取不存在的服务器。"""
-    config = MonitorConfig(
-        servers=[ServerConfig(name="test", host="10.0.0.1", username="user")]
-    )
+    config = MonitorConfig(servers=[ServerConfig(name="test", host="10.0.0.1", username="user")])
     result = config.get_server("nonexistent")
     assert result is None
 

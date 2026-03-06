@@ -57,9 +57,7 @@ class SSHClient:
 
         if self.config.private_key_path:
             # 使用密钥认证
-            private_key = paramiko.RSAKey.from_private_key_file(
-                self.config.private_key_path
-            )
+            private_key = paramiko.RSAKey.from_private_key_file(self.config.private_key_path)
             auth_kwargs["pkey"] = private_key
         elif self.config.password:
             # 使用密码认证
