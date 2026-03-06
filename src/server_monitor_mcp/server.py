@@ -1,7 +1,7 @@
 """MCP 服务器主模块。"""
 
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 from mcp.server.models import InitializationOptions
 from mcp.server.server import NotificationOptions, Server
