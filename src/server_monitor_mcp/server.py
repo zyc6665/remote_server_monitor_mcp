@@ -1,21 +1,13 @@
 """MCP 服务器主模块。"""
 
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 from mcp.server.models import InitializationOptions
 from mcp.server.server import NotificationOptions, Server
-from mcp.types import (
-    Resource,
-    Tool,
-    EmptyResult,
-    TextContent,
-    ImageContent,
-    EmbeddedResource,
-)
-from pydantic import AnyUrl
+from mcp.types import Tool, TextContent
 
-from .ssh.config import load_config, MonitorConfig, ServerConfig
+from .ssh.config import load_config, MonitorConfig
 from .ssh.client import SSHClient
 from .tools import (
     get_system_stats_tool,
@@ -140,12 +132,11 @@ class ServerMonitorMCP:
                         command = arguments.get("command")
                         timeout = arguments.get("timeout")
                         result = execute_command(server_name, client, command, timeout)
-                        return [
-                            TextContent(
-                                type="text",
-                                text=f"命令: {command}\n退出码: {result.exit_code}\n\nSTDOUT:\n{result.stdout}\n\nSTDERR:\n{result.stderr}",
-                            )
-                        ]
+                        output = (
+                            f"命令: {command}\n退出码: {result.exit_code}\n\n"
+                            f"STDOUT:\n{result.stdout}\n\nSTDERR:\n{result.stderr}"
+                        )
+                        return [TextContent(type="text", text=output)]
 
                     else:
                         return [TextContent(type="text", text=f"未知工具: {name}")]

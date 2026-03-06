@@ -1,7 +1,5 @@
 """系统监控工具。"""
 
-from typing import Optional
-
 from pydantic import BaseModel, Field
 from mcp.server.models import Tool
 
@@ -34,10 +32,8 @@ def get_system_stats(server_name: str, ssh_client: SSHClient) -> SystemStats:
         SystemStats: 系统统计信息
     """
     # CPU 使用率
-    cpu_result = ssh_client.execute(
-        "top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\\([0-9.]*\\)%* id.*/\\1/' | awk '{print 100 - $1}'",
-        timeout=10,
-    )
+    cpu_cmd = "top -bn1 | grep 'Cpu(s)' | sed 's/.*, *\\([0-9.]*\\)%* id.*/\\1/' | awk '{print 100 - $1}'"
+    cpu_result = ssh_client.execute(cpu_cmd, timeout=10)
     cpu_percent = float(cpu_result.stdout.strip()) if cpu_result.success else 0.0
 
     # 内存信息

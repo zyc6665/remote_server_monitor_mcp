@@ -1,8 +1,6 @@
 """SSH 客户端测试。"""
 
 import pytest
-from pathlib import Path
-from pydantic import ValidationError
 
 from server_monitor_mcp.ssh.config import ServerConfig, MonitorConfig
 
