@@ -4,9 +4,13 @@
 [![代码质量检查](https://github.com/zyc6665/remote_server_monitor_mcp/workflows/代码质量检查/badge.svg)](https://github.com/zyc6665/remote_server_monitor_mcp/actions/workflows/lint.yml)
 [![安全扫描](https://github.com/zyc6665/remote_server_monitor_mcp/workflows/安全扫描/badge.svg)](https://github.com/zyc6665/remote_server_monitor_mcp/actions/workflows/security.yml)
 [![Python 版本](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 一个基于 MCP (Model Context Protocol) 的远程服务器监测系统。💰 由发财一号出品。
+
+## 📄 许可证
+
+[MIT License](LICENSE) - 详见 LICENSE 文件
 
 ## 功能特性
 
@@ -107,3 +111,11 @@ pre-commit install
 ```
 
 每次提交前会自动运行代码检查。
+
+### 贡献
+
+欢迎贡献！请查看 [贡献指南](CONTRIBUTING.md) 了解详情。
+
+### 变更日志
+
+查看 [变更日志](CHANGELOG.md) 了解版本历史。
