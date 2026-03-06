@@ -23,6 +23,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install black flake8 mypy
+          pip install -e .  # 安装包以解决类型检查中的导入问题
 
       - name: 代码格式检查 (Black)
         run: |

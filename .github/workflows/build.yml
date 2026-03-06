@@ -24,6 +24,7 @@ jobs:
       - name: 安装构建工具
         run: |
           python -m pip install --upgrade pip
+          pip install -e .  # 先安装包以解决依赖问题
           pip install build twine
 
       - name: 构建包
