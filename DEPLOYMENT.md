@@ -60,7 +60,54 @@ await call_tool("get_system_stats", {"server": "production"})
 await call_tool("list_processes", {"server": "production", "limit": 10})
 ```
 
-## 6. 常见问题
+## 6. 开发和测试
+
+### 运行测试
+
+```bash
+# 安装开发依赖
+pip install -r requirements-dev.txt
+
+# 运行所有测试
+pytest tests/ -v
+
+# 运行测试并生成覆盖率报告
+pytest tests/ --cov=server_monitor_mcp --cov-report=html
+
+# 运行特定测试
+pytest tests/test_ssh_client.py -v
+```
+
+### 代码质量检查
+
+```bash
+# Black 代码格式化
+black src/ tests/
+
+# Black 检查（不修改）
+black --check src/ tests/
+
+# Flake8 代码风格检查
+flake8 src/ tests/ --max-line-length=100
+
+# Mypy 类型检查
+mypy src/ --ignore-missing-imports
+```
+
+### 使用 Pre-commit
+
+```bash
+# 安装 pre-commit
+pip install pre-commit
+
+# 安装 git hooks
+pre-commit install
+
+# 手动运行所有检查
+pre-commit run --all-files
+```
+
+## 7. 常见问题
 
 ### 配置文件找不到
 确保 `config/servers.yaml` 存在且格式正确。

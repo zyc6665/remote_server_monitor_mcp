@@ -1,6 +1,12 @@
 # Server Monitor MCP
 
-一个基于 MCP (Model Context Protocol) 的远程服务器监测系统。
+[![测试](https://github.com/zyc6665/remote_server_monitor_mcp/workflows/测试/badge.svg)](https://github.com/zyc6665/remote_server_monitor_mcp/actions/workflows/test.yml)
+[![代码质量检查](https://github.com/zyc6665/remote_server_monitor_mcp/workflows/代码质量检查/badge.svg)](https://github.com/zyc6665/remote_server_monitor_mcp/actions/workflows/lint.yml)
+[![安全扫描](https://github.com/zyc6665/remote_server_monitor_mcp/workflows/安全扫描/badge.svg)](https://github.com/zyc6665/remote_server_monitor_mcp/actions/workflows/security.yml)
+[![Python 版本](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+一个基于 MCP (Model Context Protocol) 的远程服务器监测系统。💰 由发财一号出品。
 
 ## 功能特性
 
@@ -81,3 +87,23 @@ server_monitor_mcp/
 ## License
 
 MIT
+
+## CI/CD
+
+项目使用 GitHub Actions 进行持续集成和持续部署：
+
+- **测试**：在 Python 3.10/3.11/3.12 上运行测试
+- **代码质量检查**：Black、Flake8、Mypy 静态分析
+- **安全扫描**：CodeQL 自动安全检测
+- **构建和发布**：自动构建和发布 GitHub Release
+
+### 本地开发
+
+安装 pre-commit 进行本地代码检查：
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
+每次提交前会自动运行代码检查。
